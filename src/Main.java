@@ -1,6 +1,12 @@
 
+import behavioral.Observer.Observer;
+import behavioral.Observer.RealObserver;
+import behavioral.Observer.RealObserver2;
+import behavioral.Observer.WeatherSubject;
+import behavioral.Observer2.RObserver1;
+import behavioral.Observer2.RObserver2;
+import behavioral.Observer2.Weather;
 import creational.Builder.BuilderUsage;
-import creational.Factory.Factory;
 import creational.Factory.RoadDelivery;
 import creational.Factory.SeaDelivery;
 import creational.FactoryV2.IOSApplication;
@@ -11,10 +17,7 @@ import creational.Singleton.Singleton;
 import structural.Adapter.AdapterPrinter;
 import structural.Adapter.LegacyPrinter;
 import structural.Bridge.Blue;
-import structural.Bridge.Shape;
 import structural.Bridge.Square;
-
-import static java.awt.Color.blue;
 
 public class Main {
     public static void main(String[] args) {
@@ -86,6 +89,33 @@ public class Main {
         square.draw();
         String colorName = square.getColor().getColorName();
         System.out.println(colorName);
+
+        //Behavioral - Observer
+
+//        WeatherSubject ws = new WeatherSubject();
+//        Observer realObserver = new RealObserver();
+//        Observer realObserver2 = new RealObserver2();
+//        ws.addObserver(realObserver);
+//        ws.addObserver(realObserver2);
+//        // Simulating weather change
+//        ws.setWeather("Sunny");
+//
+
+    Weather weather = new Weather();
+    //weather.setWeather("");
+        weather.setWeather("Sunny");
+        RObserver1 ro1 = new RObserver1();
+        RObserver2 ro2 = new RObserver2();
+//        weather.notifyObserver();
+        weather.addObserver(ro1);
+        weather.addObserver(ro2);
+        //weather.removeObserver(ro2);
+        weather.notifyObserver();
+
+
+
+
+
     }
 
 
