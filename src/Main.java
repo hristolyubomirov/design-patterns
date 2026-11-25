@@ -7,6 +7,7 @@ import behavioral.Observer.WeatherSubject;
 import behavioral.Observer2.RObserver1;
 import behavioral.Observer2.RObserver2;
 import behavioral.Observer2.Weather;
+import behavioral.Strategy.*;
 import creational.Builder.BuilderUsage;
 import creational.Factory.RoadDelivery;
 import creational.Factory.SeaDelivery;
@@ -126,6 +127,24 @@ public class Main {
         hMid.setPrevDev(hJunior);
 
         hSenior.handle(request);
+
+        //Behavioral - Strategy
+        Payment crypto = new CryptoPayment();
+        Payment card = new CardPayment();
+        Payment paypal = new PaypalPayment();
+        PaymentService paymentService = new PaymentService();
+        paymentService.setPayment(crypto);
+        paymentService.checkout(10.0);
+        paymentService.setPayment(card);
+        paymentService.checkout(10.0);
+        paymentService.setPayment(paypal);
+        paymentService.checkout(10.0);
+
+        //crypto.pay(10);
+        //card.pay(10);
+        //paypal.pay(10);
+
+
 
 
 
