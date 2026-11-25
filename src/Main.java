@@ -1,4 +1,5 @@
 
+import behavioral.ChainOfResponsibility.*;
 import behavioral.Observer.Observer;
 import behavioral.Observer.RealObserver;
 import behavioral.Observer.RealObserver2;
@@ -111,6 +112,21 @@ public class Main {
         weather.addObserver(ro2);
         //weather.removeObserver(ro2);
         weather.notifyObserver();
+
+        //Behavioral - > ChainOfResponsibility
+
+        Handler hSenior = new SeniorHandler();
+        Handler hMid = new MidHandler();
+        Handler hJunior = new JuniorHandler();
+        Request request = new Request(RequestLevel.MEDIUM,"Do some work.");
+
+        hJunior.setNext(hMid);
+        hSenior.setPrevDev(hMid);
+        hMid.setNext(hSenior);
+        hMid.setPrevDev(hJunior);
+
+        hSenior.handle(request);
+
 
 
 
