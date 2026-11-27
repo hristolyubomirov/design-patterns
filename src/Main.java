@@ -150,8 +150,10 @@ public class Main {
         Client client = new Client();
         restaurant.assignTableToClient("table1",client);
 
-        client.callWaiter();
+        //client.callWaiter();
         client.makeOrder(List.of("someFood1","someFood2"));
+        client.myWaiter.bringMealToClient();
+
 
 
 

@@ -5,9 +5,10 @@ import java.util.UUID;
 
 public class Order {
     public String id;
-    List<String> order;
-    public Order(List<String> order){
+
+    public List<String> orderList;
+    public Order(List<String> orderList){
         this.id = UUID.randomUUID().toString();
-        this.order = order;
+        this.orderList = orderList;
     }
 }

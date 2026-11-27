@@ -6,16 +6,26 @@ public class Waiter {
     public Chef kitchenChef = Restaurant.chef;
 
 
-
-
-    public void collectOrder(Order order){
-
+    public void sendOrderToChef(Command command) {
+        command.execute();
     }
 
-    public Order createOrder(List<String> order){
-        return new Order(order);
+
+    public void takeOrder(Order order){
+
+        Command command = new OrderCommand(kitchenChef, order);
+        sendOrderToChef(command);
+
     }
-    public Meal sendOrderToChef(Order order){
-        return kitchenChef.receiveOrder(order);
+/*
+Now the Waiter doesn't need to know:
+What a Chef is.
+What an OrderCommand is.
+How meals are prepared.
+ */
+
+    public void bringMealToClient(Meal meal,Client client){
+
+        System.out.println("Meal " + meal + "is brought to client" + client.tableName);
     }
 }

@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 public class Restaurant {
-    private final Map<String,Waiter> tables;
-    private final Map<String, List<Client>> clientsOnTable = new HashMap<>();
-    public static final Chef chef = new Chef();
-    private List<Waiter> availWaiters;
+
+
+List<Table> tables;
+List<Waiter> waiters;
+public static final Chef chef = new Chef();
+
     public Restaurant(){
-        this.tables = new HashMap<>();
-        for(int i =0;i<10;i++){
-            tables.put("table" + String.valueOf(i),null);
-        }
-        this.availWaiters = new ArrayList<>();
+        this.tables = new ArrayList<>();
+        this.waiters = new ArrayList<>();
+
     }
 
 

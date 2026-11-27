@@ -3,25 +3,33 @@ package behavioral.Command;
 import java.util.List;
 
 public class Client {
-    String tableName;
-    Waiter myWaiter;
 
+    private Table table;
 
-    public void clientSitsOnTable(String tableName){
-        
+    public void sitAtTable(Table table){
+        this.table = table;
     }
+
 
     public Waiter callWaiter(Waiter waiter) {
         return waiter;
 
     }
 
-    public Waiter callWaiter(){
-        restaurant.tables.get(tableName);
-    }
+
 
     public void makeOrder(List<String> orderList){
         Order order = new Order(orderList);
+    Waiter mywaiter = table.getAssignedWaiter();
+      OrderCommand command = new OrderCommand(order);
+
+    }
+
+    public void receiveMeal(Meal meal){
+        eat(meal);
+    }
+    public void eat(Meal meal){
+        System.out.println("Eating " + meal.name);
 
     }
 }
