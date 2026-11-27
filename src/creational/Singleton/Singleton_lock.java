@@ -8,8 +8,8 @@ public class Singleton_lock {
     private static Singleton_lock instance;
     private static final Lock lock = new ReentrantLock();
 
-    public Singleton_lock(){
-    }
+
+
 
     public static Singleton_lock getInstance() {
         lock.lock();

@@ -1,9 +1,8 @@
 
 import behavioral.ChainOfResponsibility.*;
-import behavioral.Observer.Observer;
-import behavioral.Observer.RealObserver;
-import behavioral.Observer.RealObserver2;
-import behavioral.Observer.WeatherSubject;
+import behavioral.Command.Client;
+import behavioral.Command.Restaurant;
+import behavioral.Command.Waiter;
 import behavioral.Observer2.RObserver1;
 import behavioral.Observer2.RObserver2;
 import behavioral.Observer2.Weather;
@@ -20,7 +19,7 @@ import structural.Adapter.AdapterPrinter;
 import structural.Adapter.LegacyPrinter;
 import structural.Bridge.Blue;
 import structural.Bridge.Square;
-
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
@@ -143,6 +142,16 @@ public class Main {
         //crypto.pay(10);
         //card.pay(10);
         //paypal.pay(10);
+        Restaurant restaurant = new Restaurant();
+        Waiter waiter1 = new Waiter();
+        restaurant.hireWaiter(waiter1);
+        restaurant.assignWaiters();
+
+        Client client = new Client();
+        restaurant.assignTableToClient("table1",client);
+
+        client.callWaiter();
+        client.makeOrder(List.of("someFood1","someFood2"));
 
 
 
