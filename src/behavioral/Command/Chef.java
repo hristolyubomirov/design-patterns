@@ -3,8 +3,10 @@ package behavioral.Command;
 public class Chef {
 
 
-    public void receiveOrder(ChefCommand command){
-        command.execute();
+    public Meal receiveOrder(Order order){
+        Meal meal = makeMeal(order);
+        provideMeal(meal);
+        return meal;
     }
 
     public Meal makeMeal(Order order){

@@ -3,9 +3,12 @@ package behavioral.Command;
 import java.util.List;
 
 public class Waiter {
-    public Chef kitchenChef = Restaurant.chef;
+    public Chef kitchenChef;
+    public Meal ReadyMeal;
+public Waiter(Chef chef){
+    this.kitchenChef=chef;
 
-
+}
     public void sendOrderToChef(Command command) {
         command.execute();
     }
@@ -24,8 +27,5 @@ What an OrderCommand is.
 How meals are prepared.
  */
 
-    public void bringMealToClient(Meal meal,Client client){
 
-        System.out.println("Meal " + meal + "is brought to client" + client.tableName);
-    }
 }

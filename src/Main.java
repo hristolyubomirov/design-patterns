@@ -1,8 +1,6 @@
 
 import behavioral.ChainOfResponsibility.*;
-import behavioral.Command.Client;
-import behavioral.Command.Restaurant;
-import behavioral.Command.Waiter;
+import behavioral.Command.*;
 import behavioral.Observer2.RObserver1;
 import behavioral.Observer2.RObserver2;
 import behavioral.Observer2.Weather;
@@ -142,17 +140,26 @@ public class Main {
         //crypto.pay(10);
         //card.pay(10);
         //paypal.pay(10);
-        Restaurant restaurant = new Restaurant();
-        Waiter waiter1 = new Waiter();
-        restaurant.hireWaiter(waiter1);
-        restaurant.assignWaiters();
 
         Client client = new Client();
-        restaurant.assignTableToClient("table1",client);
+        Restaurant restaurant = new Restaurant();
 
-        //client.callWaiter();
+        Waiter waiter1 = new Waiter(restaurant.getChef());
+        restaurant.hireWaiter(waiter1);
+        Table table = new Table("table1");
+
+        restaurant.addTable(table);
+        restaurant.assignWaiterToTable(table,waiter1);
+
+
+
+        restaurant.assignClientToTable(table,client);
+
+
+
         client.makeOrder(List.of("someFood1","someFood2"));
-        client.myWaiter.bringMealToClient();
+
+
 
 
 

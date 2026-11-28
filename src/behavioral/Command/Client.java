@@ -20,8 +20,9 @@ public class Client {
 
     public void makeOrder(List<String> orderList){
         Order order = new Order(orderList);
-    Waiter mywaiter = table.getAssignedWaiter();
-      OrderCommand command = new OrderCommand(order);
+    Waiter mywaiter = table.callWaiter();
+    mywaiter.takeOrder(order);
+    //OrderCommand command = new OrderCommand(order);
 
     }
 
